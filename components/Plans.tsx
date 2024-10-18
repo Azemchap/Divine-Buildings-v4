@@ -26,6 +26,8 @@ async function getPlans() {
     return data
 }
 
+export const revalidate = 60;
+
 export default async function Plans() {
     const plans: PlanInterface[] = await getPlans()
     console.log(plans)
