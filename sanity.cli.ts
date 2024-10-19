@@ -6,13 +6,15 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 **/
+
+import * as dotenv from 'dotenv'
+
 import { defineCliConfig } from 'sanity/cli'
-import dotenv from 'dotenv';
+
 
 dotenv.config()
-
-const projectId = "8d4lp96v"
-const dataset = "production"
+const projectId = "NEXT_PUBLIC_SANITY_PROJECT_ID"
+const dataset = "NEXT_PUBLIC_SANITY_DATASET"
 const studioHost = 'divinebuildings'
 
 export default defineCliConfig({ api: { projectId, dataset }, studioHost })
