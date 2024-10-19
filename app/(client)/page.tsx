@@ -9,6 +9,8 @@ import Title from "@/components/Title";
 export default function Home() {
   // const { videos } = video;
 
+  
+
   return (
     <main className="bg-gray-100">
       <section className="container mx-auto p-4">

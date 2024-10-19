@@ -8,7 +8,7 @@ import NavMenu from "./NavMenu";
 
 export default function NavBar() {
     return (
-        <div className="bg-indigo-700 shadow-md static inset-0 w-full z-50 ">
+        <div className="bg-indigo-700 shadow-md sticky top-0 inset-0 w-full z-50 ">
             <header className="container mx-auto p-1 flex gap-4 items-center text-xs font-medium text-gray-50 px-4 ">
                 <p className="hidden lg:block text-sm">
                     ARCHITECTURAL HOUSE PLANS, we design and build for the present.

@@ -8,6 +8,7 @@ import Link from "next/link"
 import { FaPhone, FaWhatsapp } from 'react-icons/fa6'
 import ImageTabGroup from '@/components/ImageTabGroup'
 import PlanRating from '@/components/PlanRating'
+import ItemNotFound from '@/components/ItemNotFound'
 
 interface Params {
   params: {
@@ -43,20 +44,20 @@ export default async function PlanDetailsPage({ params }: Params) {
   console.log(plan)
 
   if (!plan) {
-    return <div>Loading...</div>;
+    return <ItemNotFound title='Plan not found' />
   }
 
   return (
-    <div className="bg-white">
-      <div className="container mx-auto py-16 px-4 sm:py-24 sm:px-6  lg:px-8">
+    <div className="">
+      <div className="container mx-auto px-4 ">
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
           {/* Image selector */}
           <ImageTabGroup plan={plan} />
 
           {/* plan info */}
-          <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{plan?.name}</h1>
+          <div className="mt-16 px-4 sm:px-0 lg:mt-0">
+            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900">{plan?.name}</h1>
 
             <div className="mt-3">
               <h2 className="sr-only">plan information</h2>
@@ -69,6 +70,13 @@ export default async function PlanDetailsPage({ params }: Params) {
               <div className="flex items-center">
                 <PlanRating rate={plan.rating} count={plan.numReview} />
               </div>
+            </div>
+
+            <p className='text-xs text-gray-500 my-2'>{new Date(plan?.createdAt).toDateString()}</p>
+            <div className='flex items-center flex-wrap gap-2'>
+              {plan?.category.map((cat) => (
+                <Link key={cat?._id} href={`/plans/${cat?.slug.current}`} className='lowercase p-[2px] px-3 rounded-full border text-xs border-indigo-400 text-indigo-700'>#{cat?.name}</Link>
+              ))}
             </div>
 
             <div className="mt-6">
