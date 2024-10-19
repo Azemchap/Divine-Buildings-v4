@@ -9,9 +9,9 @@ interface Params {
   }
 }
 
-async function getPlansByCategory(plan: string) {
+async function getPlansByCategory(category: string) {
   const query =
-    ` *[_type == "plan" && references(*[_type == "plan" && slug.current == "${plan}"]._id)] {
+    ` *[_type == "plan" && references(*[_type == "category" && slug.current == "${category}"]._id)] {
           name,
           slug,
           description,
@@ -38,18 +38,14 @@ export default async function page({ params }: Params) {
 
   // const plans: Array<PlanInterface> = await getPlansByCategory()
   const plans: Array<PlanInterface> = await getPlansByCategory(params.slug)
-  // console.log(plans)
+  console.log(plans)
   return (
     <section className=''>
-      <div className='container mx-auto p-4'>
+      <div className='container mx-auto p-4 '>
         <Title title={`#${params?.slug}`} links />
-        <span className='lowercase p-[2px] px-3 rounded-full border text-xs border-indigo-400 text-indigo-700'>#{params?.slug}</span>
-
         <div className=" grid gap-y-12 sm:grid-cols-2 xl:grid-cols-4  sm:gap-x-6 ">
-          {plans?.length > 0 && plans.map((plan, index) => (
-            <div key={index}>
-              <PlanItem plan={plan} />
-            </div>
+          {plans?.length > 0 && plans.map((plan) => (
+            <PlanItem key={plan._id} plan={plan} />
           ))}
         </div>
       </div>

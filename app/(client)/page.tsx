@@ -12,7 +12,7 @@ export default function Home() {
   
 
   return (
-    <main className="bg-gray-100">
+    <main className="">
       <section className="container mx-auto p-4">
         {/* <Hero />
       <Showcase />

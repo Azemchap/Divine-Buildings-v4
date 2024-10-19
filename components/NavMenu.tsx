@@ -63,10 +63,10 @@ export default function NavMenu() {
                 <Navbar.Toggle className="text-indigo-600 " />
             </div>
             <Navbar.Collapse className="ml-auto">
-                <Navbar.Link className="text-indigo-600 " href="/apartments">Apartments</Navbar.Link>
-                <Navbar.Link className="text-indigo-600 " href="/bungalow">Bungalow</Navbar.Link>
-                <Navbar.Link className="text-indigo-600 " href="/duplex">Duplex</Navbar.Link>
-                <Navbar.Link className="text-indigo-600 " href="/ebooks">E-Books</Navbar.Link>
+                <Navbar.Link className="text-indigo-600 " href="/category/apartments">Apartments</Navbar.Link>
+                <Navbar.Link className="text-indigo-600 " href="/category/bungalow">Bungalow</Navbar.Link>
+                <Navbar.Link className="text-indigo-600 " href="/category/duplex">Duplex</Navbar.Link>
+                <Navbar.Link className="text-indigo-600 " href="/category/ebooks">E-Books</Navbar.Link>
                 <Navbar.Link className="text-indigo-600 " href="/about">About</Navbar.Link>
                 <Navbar.Link className="text-indigo-600 " href="/contact">Contact</Navbar.Link>
             </Navbar.Collapse>

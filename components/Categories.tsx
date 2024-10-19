@@ -8,7 +8,7 @@ async function getCategories() {
             name,
             slug,
             _id,
-            "categoryCount": count(*[_type == 'post' && reference('tags', ^._id)])
+            "categoryCount": count(*[_type == 'plan' && references('category', ^._id)])
         }`
 
     const data = await client.fetch(query)

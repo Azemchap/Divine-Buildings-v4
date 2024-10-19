@@ -32,7 +32,7 @@ export default async function Plans() {
     // console.log(plans)
 
     return (
-        <section className=" grid gap-y-12 sm:grid-cols-2 xl:grid-cols-4  sm:gap-x-6 ">
+        <section className="grid gap-y-12 sm:grid-cols-2 xl:grid-cols-4  sm:gap-x-6 ">
             {plans?.length > 0 && plans.map((plan, index) => (
                 <div key={index}>
                     <PlanItem plan={plan} />
