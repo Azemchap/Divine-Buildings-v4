@@ -6,7 +6,7 @@ export default function PlansPage() {
     return (
         <section className='bg-gray-200 p-4'>
             <div className='container mx-auto '>
-                <Title title='All plans' />
+                <Title title='All plans' links/>
                 <Plans />
             </div>
         </section>

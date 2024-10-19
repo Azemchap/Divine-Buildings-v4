@@ -46,7 +46,13 @@ export const plans = {
             name: "rating",
             title: "Rating",
             type: "number",
-            validation: (Rule: Rule) => Rule.required().error('Required')
+            validation: (Rule: Rule) =>
+                Rule.required()
+                    .integer() // Ensure the value is an integer
+                    .min(1)    // Minimum value of 1
+                    .max(5)    // Maximum value of 5
+                    .error('Rating must be an integer between 1 and 5.')
+                    .error('Required')
         },
         {
             name: "numReview",

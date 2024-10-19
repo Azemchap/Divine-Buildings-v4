@@ -9,6 +9,9 @@ import { FaPhone, FaWhatsapp } from 'react-icons/fa6'
 import ImageTabGroup from '@/components/ImageTabGroup'
 import PlanRating from '@/components/PlanRating'
 import ItemNotFound from '@/components/ItemNotFound'
+import { PortableText } from 'next-sanity'
+import Image from 'next/image'
+import { urlFor } from '@/sanity/lib/image'
 
 interface Params {
   params: {
@@ -38,6 +41,9 @@ async function getPlan(slug: string) {
   const data = await client.fetch(query)
   return data
 }
+
+
+export const revalidate = 60;
 
 export default async function PlanDetailsPage({ params }: Params) {
   const plan: PlanInterface = await getPlan(params?.slug)
@@ -85,6 +91,8 @@ export default async function PlanDetailsPage({ params }: Params) {
                 className="text-base text-gray-700 space-y-6">{plan.description}</div>
             </div>
 
+
+
             <form className="mt-6">
               <div className="mt-10 flex gap-4 flex-col sm:flex-row">
                 <Link href="tel:+237651327377"
@@ -100,49 +108,16 @@ export default async function PlanDetailsPage({ params }: Params) {
               </div>
             </form>
 
-            <section aria-labelledby="details-heading" className="mt-12">
-              <h2 id="details-heading" className="sr-only">
+            <section aria-labelledby="details-heading" className="mt-16">
+              <h2 id="details-heading" className="text-indigo-600/90 mb-4 font-bold">
                 Additional details
               </h2>
 
-              <div className="border-t divide-y divide-gray-200">
-                {/* {plan.details.map((detail) => (
-                  <Disclosure as="div" key={detail.name}>
-                    {({ open }) => (
-                      <>
-                        <h3>
-                          <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
-                            <span
-                              className={classNames(open ? 'text-indigo-600' : 'text-gray-600', 'text-lg font-medium')}
-                            >
-                              {detail.name}
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              {open ? (
-                                <MinusSmIcon
-                                  className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
-                                  aria-hidden="true"
-                                />
-                              ) : (
-                                <PlusSmIcon
-                                  className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                                  aria-hidden="true"
-                                />
-                              )}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
-                          <div>
-                            {detail.items.map((item) => (
-                              <span key={item} className='flex items-center gap-2 py-1'><CheckCircle className='w-4 text-indigo-500' /> {item}</span>
-                            ))}
-                          </div>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                ))} */}
+              <div className="border-t px-4 divide-gray-200 text-gray-900 text-justify prose-headings:my-4 prose-headings:text-2xl prose-li:list-disc prose-li:ml-6 prose-li:leading-7 prose-p:my-4">
+                <PortableText
+                  value={plan?.body}
+                  components={myPortableTextComponents}
+                />
               </div>
             </section>
           </div>
@@ -164,3 +139,10 @@ export default async function PlanDetailsPage({ params }: Params) {
 
 
 
+
+
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }) => <Image src={urlFor(value).url()} className='rounded my-6' width={1200} height={1200} alt={''} />
+  },
+} 

@@ -33,7 +33,7 @@ export default function PlanItem({ plan }: Props) {
                     <p className='text-xs text-gray-500 my-2'>{new Date(plan?.createdAt).toDateString()}</p>
                     <div className='flex items-center flex-wrap gap-2'>
                         {plan?.category.map((cat) => (
-                            <Link key={cat?._id} href={`/plans/${cat?.slug.current}`} className='lowercase p-[2px] px-3 rounded-full border text-xs border-indigo-400 text-indigo-700'>#{cat?.name}</Link>
+                            <Link key={cat?._id} href={`/category/${cat?.slug.current}`} className='lowercase p-[2px] px-3 rounded-full border text-xs border-indigo-400 text-indigo-700'>#{cat?.name}</Link>
                         ))}
                     </div>
                 </div>

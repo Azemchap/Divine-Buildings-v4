@@ -1,5 +1,5 @@
 import React from 'react'
-import Bungalow from '../../components/categories/Bungalow'
+// import Bungalow from '../../components/categories/Bungalow'
 
 
 const page = () => {
@@ -10,7 +10,7 @@ const page = () => {
                     <h1 className="text-xl leading-10 font-extrabold tracking-tight text-indigo-700 sm:text-2xl sm:leading-none lg:text-4xl">
                         Bungalow Designs
                     </h1>
-                    <Bungalow />
+                    {/* <Bungalow /> */}
                 </div>
             </div>
         </div>

@@ -35,6 +35,7 @@ export interface PlanInterface {
 
 export interface CategoryInterface {
     name: string,
-    slug: { current: string }
-    _id: string
+    slug: { current: string },
+    _id: string,
+    categoryCount: number
 }
