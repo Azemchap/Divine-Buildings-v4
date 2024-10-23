@@ -13,8 +13,8 @@ import { defineCliConfig } from 'sanity/cli'
 
 
 dotenv.config()
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID
-const dataset = process.env.SANITY_STUDIO_DATASET
+const projectId = process.env.SANITY_PROJECT_ID
+const dataset = process.env.SANITY_DATASET
 const studioHost = 'divinebuildings'
 
 export default defineCliConfig({ api: { projectId, dataset }, studioHost })
