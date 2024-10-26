@@ -36,8 +36,14 @@ export default {
             validation: (Rule: Rule) => Rule.required().error('Please upload a video file.'),
         },
         {
-            name: 'details',
-            title: 'Details',
+            name: "createdAt",
+            title: "Created At",
+            type: "datetime",
+            initialValue: () => new Date().toISOString()
+        },
+        {
+            name: 'body',
+            title: 'Content',
             type: 'array',
             of: [{ type: 'block' }],
             options: {

@@ -39,14 +39,20 @@ export default {
             validation: (Rule: Rule) => Rule.required().error('At least one PDF file is required.'),
         },
         {
+            name: "createdAt",
+            title: "Created At",
+            type: "datetime",
+            initialValue: () => new Date().toISOString()
+        },
+        {
             name: 'description',
             title: 'Description',
             type: 'text',
             validation: (Rule: Rule) => Rule.max(200).warning('Description should be under 200 characters.'),
         },
         {
-            name: "details",
-            title: "Details",
+            name: "body",
+            title: "Content",
             type: "array",
             of: [
                 { type: "block" },

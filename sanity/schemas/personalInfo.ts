@@ -82,8 +82,8 @@ export default {
             ],
         },
         {
-            name: "details",
-            title: "Personal Details",
+            name: "body",
+            title: "Content",
             type: "array",
             of: [
                 { type: "block" },

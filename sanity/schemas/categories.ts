@@ -11,6 +11,12 @@ export const category = defineType({
             type: "string",
         },
         {
+            name: "createdAt",
+            title: "Created At",
+            type: "datetime",
+            initialValue: () => new Date().toISOString()
+        },
+        {
             name: "slug",
             title: "Category Slug",
             type: "slug",

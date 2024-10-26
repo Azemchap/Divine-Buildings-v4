@@ -10,7 +10,7 @@ export default function NavMenu() {
 
 
     return (
-        <Navbar fluid rounded className=" container mx-auto ">
+        <Navbar className="bg-primary">
             <Navbar.Brand >
                 <Image onClick={() => setOpenModal(true)}
                     alt=" Logo"
