@@ -318,6 +318,10 @@
         "title": "Category Name"
       },
       {
+        "name": "createdAt",
+        "type": "datetime"
+      },
+      {
         "options": {
           "source": "name",
           "maxLength": 96
@@ -668,9 +672,9 @@
             "type": "block"
           }
         ],
-        "name": "details",
+        "name": "body",
         "type": "array",
-        "title": "Personal Details"
+        "title": "Content"
       }
     ],
     "name": "personalInfo",
@@ -750,6 +754,10 @@
         "name": "videoSrc",
         "type": "file",
         "title": "Video Source"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime"
       },
       {
         "options": {
@@ -872,8 +880,9 @@
             "type": "block"
           }
         ],
-        "name": "details",
-        "type": "array"
+        "name": "body",
+        "type": "array",
+        "title": "Content"
       }
     ],
     "name": "video",
@@ -945,6 +954,10 @@
         "name": "pdfFiles",
         "type": "array",
         "title": "PDF Files"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime"
       },
       {
         "validation": [
@@ -1092,8 +1105,9 @@
             "type": "block"
           }
         ],
-        "name": "details",
-        "type": "array"
+        "name": "body",
+        "type": "array",
+        "title": "Content"
       }
     ],
     "name": "ebook",
